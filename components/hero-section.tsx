@@ -59,10 +59,7 @@ export default function HeroSection() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="inline-block mb-6 px-4 py-2 bg-blue-100/50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-full"
             >
-              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-                ✨ Digital Marketing Excellence
-              </span>
-            </motion.div>
+            
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight mb-6 leading-tight">
               We Don't Just Market —{' '}
@@ -116,7 +113,7 @@ export default function HeroSection() {
                   className="text-base px-8 h-12 hover:bg-blue-50 dark:hover:bg-blue-950/20"
                   asChild
                 >
-                  <a href="#portfolio">View Portfolio</a>
+                  <a href="#services">View Services</a>
                 </Button>
               </motion.div>
             </motion.div>
