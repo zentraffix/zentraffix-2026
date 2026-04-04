@@ -26,9 +26,9 @@ const projects = [
     image: 'https://i.postimg.cc/9fFZdwF3/Screenshot2026-04-0417391.jpg',
     profile: 'https://www.instagram.com/mechatron_motors/',
     reels: [
+      'https://www.instagram.com/reel/DO8w-eck8qd/',
       'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
+      'https://www.instagram.com/reel/DO7lnU9E4OY/',
     ],
   },
   {
