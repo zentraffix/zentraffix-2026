@@ -21,18 +21,18 @@ const projects = [
   {
     title: 'Instagram Reel',
     category: 'Videos',
-    image: '/portfolio/video1.jpg',
+    image: 'https://via.placeholder.com/400x300',
     video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   {
     title: 'Meta Ads Campaign',
     category: 'Meta Ads',
-    image: '/portfolio/meta1.jpg',
+    image: 'https://via.placeholder.com/400x300',
   },
   {
     title: 'Google Ads Report',
     category: 'Google Ads',
-    image: '/portfolio/google1.jpg',
+    image: 'https://via.placeholder.com/400x300',
   },
 ];
 
@@ -46,60 +46,65 @@ export default function PortfolioSection() {
       : projects.filter((p) => p.category === active);
 
   return (
-    <section id="services" className="py-24 lg:py-32">
-      <div className="w-full px-8 lg:px-16">
+    <section id="portfolio" className="py-24 lg:py-32">
+      <div className="w-full px-6 lg:px-16">
 
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Our Services
+            Our Portfolio
           </h2>
-          <div className="w-24 h-1 bg-indigo-500 mx-auto my-6 rounded-full"></div>
-</div>
-      {/* FILTERS */}
-      <div className="flex justify-center gap-3 flex-wrap mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActive(cat)}
-            className={`px-4 py-2 rounded-full border transition ${
-              active === cat
-                ? 'bg-white text-black'
-                : 'text-white border-gray-500 hover:bg-white hover:text-black'
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+          <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+        </div>
 
-      {/* GRID */}
-      <div className="grid md:grid-cols-3 gap-6">
-        {filtered.map((item, i) => (
-          <motion.div
-            key={i}
-            layout
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
-            className="relative group cursor-pointer overflow-hidden rounded-xl"
-            onClick={() => setSelected(item)}
-          >
-            <img
-              src={item.image}
-              className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
-            />
+        {/* FILTERS */}
+        <div className="flex justify-center gap-4 flex-wrap mb-12 bg-white/5 backdrop-blur-md p-4 rounded-full border border-white/10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border
+                ${
+                  active === cat
+                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105'
+                    : 'border-gray-400 text-gray-300 hover:border-white hover:text-white hover:bg-white/10'
+                }
+              `}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
-            {/* OVERLAY */}
-            <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
-              <h3 className="text-lg font-semibold mb-2">
-                {item.title}
-              </h3>
-              <p className="text-sm">{item.category}</p>
-            </div>
-          </motion.div>
-        ))}
+        {/* GRID */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {filtered.map((item, i) => (
+            <motion.div
+              key={i}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="relative group cursor-pointer overflow-hidden rounded-xl"
+              onClick={() => setSelected(item)}
+            >
+              <img
+                src={item.image}
+                className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
+              />
+
+              {/* OVERLAY */}
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
+                <h3 className="text-lg font-semibold mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm">{item.category}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
 
       {/* MODAL */}
@@ -113,12 +118,20 @@ export default function PortfolioSection() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="bg-white text-black rounded-xl p-6 max-w-2xl w-full"
+              className="bg-white text-black rounded-xl p-6 max-w-2xl w-full relative"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* CLOSE */}
+              <button
+                className="absolute top-3 right-3 text-xl"
+                onClick={() => setSelected(null)}
+              >
+                ✕
+              </button>
+
               <h2 className="text-2xl font-bold mb-4">
                 {selected.title}
               </h2>
@@ -143,7 +156,7 @@ export default function PortfolioSection() {
                 />
               )}
 
-              {/* IMAGE (ADS REPORT) */}
+              {/* IMAGE */}
               {!selected.video && (
                 <img
                   src={selected.image}
