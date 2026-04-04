@@ -46,11 +46,17 @@ export default function PortfolioSection() {
       : projects.filter((p) => p.category === active);
 
   return (
-    <section className="py-20 px-6">
-      <h2 className="text-4xl font-bold text-center mb-10">
-        Our Portfolio
-      </h2>
+    <section className="py-24 lg:py-32 bg-accent/30">
+      <div className="w-full px-8 lg:px-16">
 
+        {/* SECTION HEADING */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            Our Proven Growth System
+          </h2>
+          {/* Purple underline */}
+  <div className="w-24 h-1 bg-indigo-500 mx-auto my-6 rounded-full"></div>
+</div>
       {/* FILTERS */}
       <div className="flex justify-center gap-3 flex-wrap mb-10">
         {categories.map((cat) => (
