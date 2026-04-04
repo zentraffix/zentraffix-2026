@@ -18,24 +18,27 @@ const projects = [
     image: 'https://i.postimg.cc/MZc03B0z/Screenshot2026-04-0411513.jpg',
     link: 'https://arulscargoinsurance.com/',
   },
+
+  // 🔥 Use REEL LINKS (not profile links)
   {
     title: 'Mechatron Motors',
     category: 'Videos',
     image: 'https://i.postimg.cc/9fFZdwF3/Screenshot2026-04-0417391.jpg',
-    video: 'https://www.instagram.com/mechatron_motors/',
+    video: 'https://www.instagram.com/reel/DOOA5zmE-Hf/',
   },
   {
     title: 'JMJ Catering',
     category: 'Videos',
     image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
-    video: 'https://www.instagram.com/jmjcateringcbe27_official/',
+    video: 'https://www.instagram.com/reel/DOOA5zmE-Hf/', // replace with actual
   },
   {
     title: 'SIRT Mech',
     category: 'Videos',
     image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
-    video: 'https://www.instagram.com/sritmech/',
+    video: 'https://www.instagram.com/reel/DOOA5zmE-Hf/', // replace with actual
   },
+
   {
     title: 'Meta Ads Campaign',
     category: 'Meta Ads',
@@ -47,6 +50,16 @@ const projects = [
     image: 'https://via.placeholder.com/400x300',
   },
 ];
+
+// 🔥 Convert reel URL → embed URL
+const getEmbedUrl = (url) => {
+  if (!url) return null;
+  if (url.includes('/reel/')) {
+    const id = url.split('/reel/')[1].split('/')[0];
+    return `https://www.instagram.com/reel/${id}/embed`;
+  }
+  return null;
+};
 
 export default function PortfolioSection() {
   const [active, setActive] = useState('All');
@@ -97,16 +110,7 @@ export default function PortfolioSection() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
               className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl"
-              onClick={() => {
-                // 🔥 Direct open for Instagram
-                if (item.video) {
-                  window.open(item.video, '_blank');
-                } 
-                // Modal for others
-                else {
-                  setSelected(item);
-                }
-              }}
+              onClick={() => setSelected(item)}
             >
               <img
                 src={item.image}
@@ -167,11 +171,22 @@ export default function PortfolioSection() {
                 </a>
               )}
 
-              {/* Image */}
-              <img
-                src={selected.image}
-                className="w-full rounded"
-              />
+              {/* 🔥 Instagram Reel Embed */}
+              {selected.video && getEmbedUrl(selected.video) && (
+                <iframe
+                  src={getEmbedUrl(selected.video)}
+                  className="w-full h-[500px] rounded-xl"
+                  allowFullScreen
+                />
+              )}
+
+              {/* Fallback Image */}
+              {!selected.video && (
+                <img
+                  src={selected.image}
+                  className="w-full rounded"
+                />
+              )}
             </motion.div>
           </motion.div>
         )}
