@@ -51,29 +51,31 @@ export default function PortfolioSection() {
 
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-foreground">
             Our Portfolio
           </h2>
           <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
         </div>
 
         {/* FILTERS */}
-        <div className="flex justify-center gap-4 flex-wrap mb-12 bg-white/5 backdrop-blur-md p-4 rounded-full border border-white/10">
+        <div className="flex justify-center gap-4 flex-wrap mb-12 bg-white/10 dark:bg-white/5 backdrop-blur-md p-4 rounded-full border border-white/20">
+
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border
-  ${
-    active === cat
-      ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105'
-      : 'border-gray-500 text-black hover:border-white hover:bg-white/10 hover:scale-105'
-  }
-`}
+                ${
+                  active === cat
+                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105'
+                    : 'border-gray-400 text-gray-800 dark:text-gray-200 hover:border-white hover:bg-white/20 dark:hover:bg-white/10 hover:scale-105'
+                }
+              `}
             >
               {cat}
             </button>
           ))}
+
         </div>
 
         {/* GRID */}
@@ -86,7 +88,7 @@ export default function PortfolioSection() {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
-              className="relative group cursor-pointer overflow-hidden rounded-xl"
+              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl"
               onClick={() => setSelected(item)}
             >
               <img
@@ -96,10 +98,10 @@ export default function PortfolioSection() {
 
               {/* OVERLAY */}
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
-                <h3 className="text-lg font-semibold mb-2">
+                <h3 className="text-lg font-semibold mb-2 text-white">
                   {item.title}
                 </h3>
-                <p className="text-sm">{item.category}</p>
+                <p className="text-sm text-gray-300">{item.category}</p>
               </div>
             </motion.div>
           ))}
@@ -118,7 +120,7 @@ export default function PortfolioSection() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="bg-white text-black rounded-xl p-6 max-w-2xl w-full relative"
+              className="bg-white dark:bg-neutral-900 text-black dark:text-white rounded-xl p-6 max-w-2xl w-full relative"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
@@ -141,7 +143,7 @@ export default function PortfolioSection() {
                 <a
                   href={selected.link}
                   target="_blank"
-                  className="inline-block mb-4 bg-black text-white px-4 py-2 rounded"
+                  className="inline-block mb-4 bg-black text-white px-4 py-2 rounded hover:opacity-90"
                 >
                   Visit Website
                 </a>
