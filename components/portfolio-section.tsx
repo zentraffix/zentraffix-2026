@@ -22,7 +22,7 @@ const projects = [
     title: 'Mechatron Motors',
     category: 'Videos',
     image: 'https://i.postimg.cc/9fFZdwF3/Screenshot2026-04-0417391.jpg',
-    video: 'https://www.instagram.com/mechatron_motors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    video: 'https://www.instagram.com/reel/DOOA5zmE-Hf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
   },
   {
     title: 'JMJ Catering',
