@@ -22,19 +22,19 @@ const projects = [
     title: 'Mechatron Motors',
     category: 'Videos',
     image: 'https://i.postimg.cc/9fFZdwF3/Screenshot2026-04-0417391.jpg',
-    video: 'https://www.instagram.com/mechatron_motors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    video: 'https://www.instagram.com/mechatron_motors/',
   },
   {
     title: 'JMJ Catering',
     category: 'Videos',
     image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
-    video: 'https://www.instagram.com/jmjcateringcbe27_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    video: 'https://www.instagram.com/jmjcateringcbe27_official/',
   },
   {
     title: 'SIRT Mech',
     category: 'Videos',
     image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
-    video: 'https://www.instagram.com/sritmech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    video: 'https://www.instagram.com/sritmech/',
   },
   {
     title: 'Meta Ads Campaign',
@@ -50,7 +50,7 @@ const projects = [
 
 export default function PortfolioSection() {
   const [active, setActive] = useState('All');
-  const [selected, setSelected] = useState<any>(null);
+  const [selected, setSelected] = useState(null);
 
   const filtered =
     active === 'All'
@@ -63,33 +63,30 @@ export default function PortfolioSection() {
 
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             Our Portfolio
           </h2>
           <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* FILTERS */}
-        <div className="flex justify-center gap-4 flex-wrap mb-12 bg-white/10 dark:bg-white/5 backdrop-blur-md p-4 rounded-full border border-white/20">
-
+        {/* Filters */}
+        <div className="flex justify-center gap-4 flex-wrap mb-12 bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border
-                ${
-                  active === cat
-                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105' : 'border-gray-500 text-black hover:border-white hover:bg-white/10 hover:scale-105'
-                }
-              `}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
+                active === cat
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105'
+                  : 'border-gray-500 hover:border-white hover:bg-white/10 hover:scale-105'
+              }`}
             >
               {cat}
             </button>
           ))}
-
         </div>
 
-        {/* GRID */}
+        {/* Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {filtered.map((item, i) => (
             <motion.div
@@ -100,14 +97,23 @@ export default function PortfolioSection() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
               className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl"
-              onClick={() => setSelected(item)}
+              onClick={() => {
+                // 🔥 Direct open for Instagram
+                if (item.video) {
+                  window.open(item.video, '_blank');
+                } 
+                // Modal for others
+                else {
+                  setSelected(item);
+                }
+              }}
             >
               <img
                 src={item.image}
                 className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
               />
 
-              {/* OVERLAY */}
+              {/* Overlay */}
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
                 <h3 className="text-lg font-semibold mb-2 text-white">
                   {item.title}
@@ -120,7 +126,7 @@ export default function PortfolioSection() {
 
       </div>
 
-      {/* MODAL */}
+      {/* Modal */}
       <AnimatePresence>
         {selected && (
           <motion.div
@@ -137,7 +143,7 @@ export default function PortfolioSection() {
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* CLOSE */}
+              {/* Close */}
               <button
                 className="absolute top-3 right-3 text-xl"
                 onClick={() => setSelected(null)}
@@ -149,36 +155,23 @@ export default function PortfolioSection() {
                 {selected.title}
               </h2>
 
-              {/* WEBSITE */}
+              {/* Website */}
               {selected.link && (
                 <a
                   href={selected.link}
                   target="_blank"
-                  className="inline-block mb-4 bg-black text-white px-4 py-2 rounded hover:opacity-90"
+                  rel="noopener noreferrer"
+                  className="inline-block mb-4 bg-black text-white px-4 py-2 rounded"
                 >
                   Visit Website
                 </a>
               )}
 
-              {/* VIDEO */}
-             {selected.video && (
-  <a
-    href={selected.video}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block bg-pink-600 text-white px-4 py-2 rounded"
-  >
-    Open Instagram Profile
-  </a>
-)}
-
-              {/* IMAGE */}
-              {!selected.video && (
-                <img
-                  src={selected.image}
-                  className="w-full rounded"
-                />
-              )}
+              {/* Image */}
+              <img
+                src={selected.image}
+                className="w-full rounded"
+              />
             </motion.div>
           </motion.div>
         )}
