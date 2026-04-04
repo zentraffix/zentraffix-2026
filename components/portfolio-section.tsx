@@ -10,7 +10,7 @@ const projects = [
     title: 'Business Website',
     category: 'Websites',
     image: 'https://i.postimg.cc/1Rnktc4r/Screenshot-2026-04-04-114108.png',
-    link: 'https://example.com',
+    link: 'https://jmjcateringcbe.com/',
   },
   {
     title: 'Instagram Reel',
