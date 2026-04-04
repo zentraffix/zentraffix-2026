@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "deploy": "npx @cloudflare/next-on-pages@latest"
-  },
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "deploy": "npx @cloudflare/next-on-pages@latest"
+},
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@next/swc-wasm-nodejs": "13.5.1",
