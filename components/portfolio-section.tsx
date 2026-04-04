@@ -183,7 +183,14 @@ export default function PortfolioSection() {
 
               {/* Fallback Image */}
               {!selected.profile && !selected.link && (
-                <img src={selected.image} className="w-full rounded" />
+                <img
+  src={selected.image}
+  onError={(e) => {
+    e.currentTarget.src =
+      'https://via.placeholder.com/600x400?text=Preview+Not+Available';
+  }}
+  className="w-full rounded"
+/>
               )}
             </motion.div>
           </motion.div>
