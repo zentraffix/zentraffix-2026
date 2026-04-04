@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const categories = ['All', 'Websites', 'Videos', 'Meta Ads', 'Google Ads'];
 
 const projects = [
+  // 🌐 WEBSITES
   {
     title: 'JMJ Catering',
     category: 'Websites',
@@ -19,7 +20,7 @@ const projects = [
     link: 'https://arulscargoinsurance.com/',
   },
 
-  // 🔥 Instagram Project
+  // 🎬 VIDEOS (INSTAGRAM)
   {
     title: 'Mechatron Motors',
     category: 'Videos',
@@ -31,17 +32,39 @@ const projects = [
       'https://www.instagram.com/reel/DO7lnU9E4OY/',
     ],
   },
+  {
+    title: 'JMJ Catering Reels',
+    category: 'Videos',
+    image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
+    profile: 'https://www.instagram.com/jmjcateringcbe27_official/',
+    reels: [
+      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
+      'https://www.instagram.com/reel/DO8w-eck8qd/',
+      'https://www.instagram.com/reel/DO7lnU9E4OY/',
+    ],
+  },
+  {
+    title: 'SIRT Mech',
+    category: 'Videos',
+    image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
+    profile: 'https://www.instagram.com/sritmech/',
+    reels: [
+      'https://www.instagram.com/reel/DO7lnU9E4OY/',
+      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
+      'https://www.instagram.com/reel/DO8w-eck8qd/',
+    ],
+  },
 
-  // 🔥 Ads (FIXED)
+  // 📊 ADS
   {
     title: 'Meta Ads Campaign',
     category: 'Meta Ads',
-    image: 'https://i.postimg.cc/NG8SMZVG/Screenshot2026-04-0411410.jpg',
+    image: 'https://i.postimg.cc/gkdNrDL7/Screenshot2026-04-0418415.jpg',
   },
   {
     title: 'Google Ads Report',
     category: 'Google Ads',
-    image: 'https://i.postimg.cc/NG8SMZVG/Screenshot2026-04-0411410.jpg',
+    image: 'https://i.postimg.cc/3RvDFPVf/Time-series-2026-03-16-2026-04-03.png',
   },
 ];
 
@@ -121,7 +144,7 @@ export default function PortfolioSection() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              key={selected.title} // ✅ important fix
+              key={selected.title}
               className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-5xl w-full relative"
               onClick={(e) => e.stopPropagation()}
             >
@@ -170,6 +193,7 @@ export default function PortfolioSection() {
                           src={selected.image}
                           className="w-full h-[260px] object-cover rounded-xl"
                         />
+
                         <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
                           <div className="text-white text-3xl">▶</div>
                         </div>
@@ -179,7 +203,7 @@ export default function PortfolioSection() {
                 </>
               )}
 
-              {/* ✅ SHOW IMAGE FOR ADS / OTHER */}
+              {/* Ads / Others Image */}
               {!selected.profile && (
                 <img
                   src={selected.image}
