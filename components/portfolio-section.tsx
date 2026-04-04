@@ -161,13 +161,16 @@ export default function PortfolioSection() {
               )}
 
               {/* VIDEO */}
-              {selected.video && (
-                <iframe
-                  src={selected.video}
-                  className="w-full h-64 rounded"
-                  allowFullScreen
-                />
-              )}
+             {selected.video && (
+  <a
+    href={selected.video}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-pink-600 text-white px-4 py-2 rounded"
+  >
+    Open Instagram Profile
+  </a>
+)}
 
               {/* IMAGE */}
               {!selected.video && (
