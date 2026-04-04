@@ -40,7 +40,7 @@ const projects = [
   {
     title: 'Google Ads Report',
     category: 'Google Ads',
-    image: 'https://i.postimg.cc/3RvDFPVf/Time-series(2026-03-16-2026-04-03).png',
+    image: 'https://i.postimg.cc/QNBH1G1N/Time-serie.jpg',
   },
 ];
 
