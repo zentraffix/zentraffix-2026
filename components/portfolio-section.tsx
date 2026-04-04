@@ -28,13 +28,13 @@ const projects = [
     title: 'JMJ Catering',
     category: 'Videos',
     image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
-    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    video: 'https://www.instagram.com/jmjcateringcbe27_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   },
   {
     title: 'SIRT Mech',
     category: 'Videos',
     image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
-    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    video: 'https://www.instagram.com/sritmech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   },
   {
     title: 'Meta Ads Campaign',
