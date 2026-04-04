@@ -7,10 +7,16 @@ const categories = ['All', 'Websites', 'Videos', 'Meta Ads', 'Google Ads'];
 
 const projects = [
   {
-    title: 'Business Website',
+    title: 'JMJ Catering',
     category: 'Websites',
     image: 'https://i.postimg.cc/1Rnktc4r/Screenshot-2026-04-04-114108.png',
     link: 'https://jmjcateringcbe.com/',
+  },
+  {
+    title: 'Aruls Cargo Insurance',
+    category: 'Websites',
+    image: 'https://i.postimg.cc/9fPfvHHc/Screenshot-2026-04-04-115139.png',
+    link: 'https://arulscargoinsurance.com/',
   },
   {
     title: 'Instagram Reel',
