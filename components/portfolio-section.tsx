@@ -33,7 +33,7 @@ const projects = [
   {
     title: 'SIRT Mech',
     category: 'Videos',
-    image: 'https://via.placeholder.com/400x300',
+    image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
     video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   {
