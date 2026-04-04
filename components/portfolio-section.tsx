@@ -19,7 +19,7 @@ const projects = [
     link: 'https://arulscargoinsurance.com/',
   },
 
-  // 🔥 Mechatron Motors (FIXED)
+  // 🔥 Instagram Project
   {
     title: 'Mechatron Motors',
     category: 'Videos',
@@ -32,16 +32,17 @@ const projects = [
     ],
   },
 
+  // 🔥 Ads (FIXED)
   {
-  title: 'Meta Ads Campaign',
-  category: 'Meta Ads',
-  image: 'https://i.postimg.cc/NG8SMZVG/Screenshot2026-04-0411410.jpg',
-},
-{
-  title: 'Google Ads Report',
-  category: 'Google Ads',
-  image: 'https://i.postimg.cc/NG8SMZVG/Screenshot2026-04-0411410.jpg',
-},
+    title: 'Meta Ads Campaign',
+    category: 'Meta Ads',
+    image: 'https://i.postimg.cc/NG8SMZVG/Screenshot2026-04-0411410.jpg',
+  },
+  {
+    title: 'Google Ads Report',
+    category: 'Google Ads',
+    image: 'https://i.postimg.cc/NG8SMZVG/Screenshot2026-04-0411410.jpg',
+  },
 ];
 
 export default function PortfolioSection() {
@@ -92,13 +93,13 @@ export default function PortfolioSection() {
               onClick={() => setSelected(item)}
             >
               <img
-  src={item.image}
-  onError={(e) => {
-    e.currentTarget.src =
-      'https://via.placeholder.com/400x300?text=Preview+Not+Available';
-  }}
-  className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
-/>
+                src={item.image}
+                onError={(e) => {
+                  e.currentTarget.src =
+                    'https://via.placeholder.com/400x300?text=Preview+Not+Available';
+                }}
+                className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
+              />
 
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
                 <h3 className="text-lg font-semibold mb-2 text-white">
@@ -120,6 +121,7 @@ export default function PortfolioSection() {
             onClick={() => setSelected(null)}
           >
             <motion.div
+              key={selected.title} // ✅ important fix
               className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-5xl w-full relative"
               onClick={(e) => e.stopPropagation()}
             >
@@ -147,10 +149,9 @@ export default function PortfolioSection() {
                 </a>
               )}
 
-              {/* Instagram Section */}
+              {/* Instagram */}
               {selected.profile && (
                 <>
-                  {/* Profile */}
                   <button
                     onClick={() => window.open(selected.profile, '_blank')}
                     className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
@@ -158,7 +159,6 @@ export default function PortfolioSection() {
                     Open Instagram Profile
                   </button>
 
-                  {/* Reels (SAFE VERSION) */}
                   <div className="grid md:grid-cols-3 gap-4">
                     {selected.reels.map((reel, i) => (
                       <div
@@ -170,8 +170,6 @@ export default function PortfolioSection() {
                           src={selected.image}
                           className="w-full h-[260px] object-cover rounded-xl"
                         />
-
-                        {/* Play Icon */}
                         <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
                           <div className="text-white text-3xl">▶</div>
                         </div>
@@ -181,16 +179,16 @@ export default function PortfolioSection() {
                 </>
               )}
 
-              {/* Fallback Image */}
-              {!selected.profile && !selected.link && (
+              {/* ✅ SHOW IMAGE FOR ADS / OTHER */}
+              {!selected.profile && (
                 <img
-  src={selected.image}
-  onError={(e) => {
-    e.currentTarget.src =
-      'https://via.placeholder.com/600x400?text=Preview+Not+Available';
-  }}
-  className="w-full rounded"
-/>
+                  src={selected.image}
+                  onError={(e) => {
+                    e.currentTarget.src =
+                      'https://via.placeholder.com/600x400?text=Preview+Not+Available';
+                  }}
+                  className="w-full rounded-xl mt-4"
+                />
               )}
             </motion.div>
           </motion.div>
