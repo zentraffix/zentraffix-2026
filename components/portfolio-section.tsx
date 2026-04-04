@@ -66,7 +66,7 @@ export default function PortfolioSection() {
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border
   ${
     active === cat
-      ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105'
+      ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-black border-transparent shadow-lg scale-105'
       : 'border-gray-500 text-white hover:border-white hover:bg-white/10 hover:scale-105'
   }
 `}
