@@ -19,7 +19,7 @@ const projects = [
     link: 'https://arulscargoinsurance.com/',
   },
 
-  // 🔥 VIDEOS WITH PROFILE + REELS
+  // 🔥 Mechatron Motors (FIXED)
   {
     title: 'Mechatron Motors',
     category: 'Videos',
@@ -29,28 +29,6 @@ const projects = [
       'https://www.instagram.com/reel/DO8w-eck8qd/',
       'https://www.instagram.com/reel/DOOA5zmE-Hf/',
       'https://www.instagram.com/reel/DO7lnU9E4OY/',
-    ],
-  },
-  {
-    title: 'JMJ Catering',
-    category: 'Videos',
-    image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
-    profile: 'https://www.instagram.com/jmjcateringcbe27_official/',
-    reels: [
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-    ],
-  },
-  {
-    title: 'SIRT Mech',
-    category: 'Videos',
-    image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
-    profile: 'https://www.instagram.com/sritmech/',
-    reels: [
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
     ],
   },
 
@@ -65,13 +43,6 @@ const projects = [
     image: 'https://via.placeholder.com/400x300',
   },
 ];
-
-// 🔥 Reel → Embed converter
-const getEmbedUrl = (url) => {
-  if (!url) return null;
-  const id = url.split('/reel/')[1]?.split('/')[0];
-  return `https://www.instagram.com/reel/${id}/embed`;
-};
 
 export default function PortfolioSection() {
   const [active, setActive] = useState('All');
@@ -116,7 +87,6 @@ export default function PortfolioSection() {
           {filtered.map((item, i) => (
             <motion.div
               key={i}
-              layout
               whileHover={{ scale: 1.05 }}
               className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl"
               onClick={() => setSelected(item)}
@@ -126,7 +96,6 @@ export default function PortfolioSection() {
                 className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
               />
 
-              {/* Overlay */}
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
                 <h3 className="text-lg font-semibold mb-2 text-white">
                   {item.title}
@@ -147,9 +116,10 @@ export default function PortfolioSection() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-5xl w-full"
+              className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-5xl w-full relative"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close */}
               <button
                 className="absolute top-3 right-3 text-xl"
                 onClick={() => setSelected(null)}
@@ -161,7 +131,7 @@ export default function PortfolioSection() {
                 {selected.title}
               </h2>
 
-              {/* WEBSITE */}
+              {/* Website */}
               {selected.link && (
                 <a
                   href={selected.link}
@@ -173,10 +143,10 @@ export default function PortfolioSection() {
                 </a>
               )}
 
-              {/* INSTAGRAM PROFILE + REELS */}
+              {/* Instagram Section */}
               {selected.profile && (
                 <>
-                  {/* Profile Button */}
+                  {/* Profile */}
                   <button
                     onClick={() => window.open(selected.profile, '_blank')}
                     className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
@@ -184,24 +154,30 @@ export default function PortfolioSection() {
                     Open Instagram Profile
                   </button>
 
-                  {/* Reel Previews */}
+                  {/* Reels (SAFE VERSION) */}
                   <div className="grid md:grid-cols-3 gap-4">
                     {selected.reels.map((reel, i) => (
-  <iframe
-    key={i}
-    src={getEmbedUrl(reel)}
-    className="w-full h-[320px] rounded-xl border"
-    loading="lazy"
-    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-    allowFullScreen
-    referrerPolicy="no-referrer-when-downgrade"
-  />
-))}
+                      <div
+                        key={i}
+                        onClick={() => window.open(reel, '_blank')}
+                        className="relative cursor-pointer group"
+                      >
+                        <img
+                          src={selected.image}
+                          className="w-full h-[260px] object-cover rounded-xl"
+                        />
+
+                        {/* Play Icon */}
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
+                          <div className="text-white text-3xl">▶</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </>
               )}
 
-              {/* IMAGE fallback */}
+              {/* Fallback Image */}
               {!selected.profile && !selected.link && (
                 <img src={selected.image} className="w-full rounded" />
               )}
