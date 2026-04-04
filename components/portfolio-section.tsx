@@ -92,9 +92,13 @@ export default function PortfolioSection() {
               onClick={() => setSelected(item)}
             >
               <img
-                src={item.image}
-                className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
-              />
+  src={item.image}
+  onError={(e) => {
+    e.currentTarget.src =
+      'https://via.placeholder.com/400x300?text=Preview+Not+Available';
+  }}
+  className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
+/>
 
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
                 <h3 className="text-lg font-semibold mb-2 text-white">
