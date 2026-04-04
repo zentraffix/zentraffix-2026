@@ -9,7 +9,7 @@ const projects = [
   {
     title: 'JMJ Catering',
     category: 'Websites',
-    image: 'https://i.postimg.cc/1Rnktc4r/Screenshot-2026-04-04-114108.png',
+    image: 'https://i.postimg.cc/NG8SMZVG/Screenshot2026-04-0411410.jpg',
     link: 'https://jmjcateringcbe.com/',
   },
   {
