@@ -7,6 +7,20 @@ const categories = ['All', 'Websites', 'Videos', 'Meta Ads', 'Google Ads'];
 
 const projects = [
   {
+    title: 'JMJ Catering',
+    category: 'Websites',
+    image: 'https://i.postimg.cc/NG8SMZVG/Screenshot2026-04-0411410.jpg',
+    link: 'https://jmjcateringcbe.com/',
+  },
+  {
+    title: 'Aruls Cargo Insurance',
+    category: 'Websites',
+    image: 'https://i.postimg.cc/MZc03B0z/Screenshot2026-04-0411513.jpg',
+    link: 'https://arulscargoinsurance.com/',
+  },
+
+  // 🔥 VIDEOS WITH PROFILE + REELS
+  {
     title: 'Mechatron Motors',
     category: 'Videos',
     image: 'https://i.postimg.cc/9fFZdwF3/Screenshot2026-04-0417391.jpg',
@@ -28,37 +42,104 @@ const projects = [
       'https://www.instagram.com/reel/DOOA5zmE-Hf/',
     ],
   },
+  {
+    title: 'SIRT Mech',
+    category: 'Videos',
+    image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
+    profile: 'https://www.instagram.com/sritmech/',
+    reels: [
+      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
+      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
+      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
+    ],
+  },
+
+  {
+    title: 'Meta Ads Campaign',
+    category: 'Meta Ads',
+    image: 'https://via.placeholder.com/400x300',
+  },
+  {
+    title: 'Google Ads Report',
+    category: 'Google Ads',
+    image: 'https://via.placeholder.com/400x300',
+  },
 ];
 
-
-// 🔥 Convert reel → embed
+// 🔥 Reel → Embed converter
 const getEmbedUrl = (url) => {
+  if (!url) return null;
   const id = url.split('/reel/')[1]?.split('/')[0];
   return `https://www.instagram.com/reel/${id}/embed`;
 };
 
 export default function PortfolioSection() {
+  const [active, setActive] = useState('All');
   const [selected, setSelected] = useState(null);
 
-  return (
-    <section className="py-24">
-      <div className="grid md:grid-cols-3 gap-6 px-6">
+  const filtered =
+    active === 'All'
+      ? projects
+      : projects.filter((p) => p.category === active);
 
-        {projects.map((item, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.05 }}
-            className="cursor-pointer"
-            onClick={() => setSelected(item)}
-          >
-            <img src={item.image} className="rounded-xl" />
-            <h3 className="mt-2 font-semibold">{item.title}</h3>
-          </motion.div>
-        ))}
+  return (
+    <section id="portfolio" className="py-24 lg:py-32">
+      <div className="w-full px-6 lg:px-16">
+
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            Our Portfolio
+          </h2>
+          <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+        </div>
+
+        {/* Filters */}
+        <div className="flex justify-center gap-4 flex-wrap mb-12 bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
+                active === cat
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105'
+                  : 'border-gray-500 hover:border-white hover:bg-white/10 hover:scale-105'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {filtered.map((item, i) => (
+            <motion.div
+              key={i}
+              layout
+              whileHover={{ scale: 1.05 }}
+              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl"
+              onClick={() => setSelected(item)}
+            >
+              <img
+                src={item.image}
+                className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
+                <h3 className="text-lg font-semibold mb-2 text-white">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-300">{item.category}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
       </div>
 
-      {/* MODAL */}
+      {/* Modal */}
       <AnimatePresence>
         {selected && (
           <motion.div
@@ -66,35 +147,61 @@ export default function PortfolioSection() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-4xl w-full"
+              className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-5xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <button onClick={() => setSelected(null)}>✕</button>
+              <button
+                className="absolute top-3 right-3 text-xl"
+                onClick={() => setSelected(null)}
+              >
+                ✕
+              </button>
 
-              <h2 className="text-2xl font-bold mb-4">
+              <h2 className="text-2xl font-bold mb-6">
                 {selected.title}
               </h2>
 
-              {/* 🔥 OPEN PROFILE */}
-              <button
-                onClick={() => window.open(selected.profile, '_blank')}
-                className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
-              >
-                Open Instagram Profile
-              </button>
+              {/* WEBSITE */}
+              {selected.link && (
+                <a
+                  href={selected.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mb-6 bg-black text-white px-4 py-2 rounded"
+                >
+                  Visit Website
+                </a>
+              )}
 
-              {/* 🔥 3 REEL EMBEDS */}
-              <div className="grid md:grid-cols-3 gap-4">
-                {selected.reels.map((reel, i) => (
-                  <iframe
-                    key={i}
-                    src={getEmbedUrl(reel)}
-                    className="w-full h-[300px] rounded-xl"
-                    allowFullScreen
-                  />
-                ))}
-              </div>
+              {/* INSTAGRAM PROFILE + REELS */}
+              {selected.profile && (
+                <>
+                  {/* Profile Button */}
+                  <button
+                    onClick={() => window.open(selected.profile, '_blank')}
+                    className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
+                  >
+                    Open Instagram Profile
+                  </button>
 
+                  {/* Reel Previews */}
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {selected.reels.map((reel, i) => (
+                      <iframe
+                        key={i}
+                        src={getEmbedUrl(reel)}
+                        className="w-full h-[300px] rounded-xl"
+                        allowFullScreen
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* IMAGE fallback */}
+              {!selected.profile && !selected.link && (
+                <img src={selected.image} className="w-full rounded" />
+              )}
             </motion.div>
           </motion.div>
         )}
