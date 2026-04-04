@@ -27,7 +27,7 @@ const projects = [
   {
     title: 'JMJ Catering',
     category: 'Videos',
-    image: 'https://via.placeholder.com/400x300',
+    image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
     video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   {
