@@ -21,7 +21,7 @@ const projects = [
   {
     title: 'Mechatron Motors',
     category: 'Videos',
-    image: 'https://via.placeholder.com/400x300',
+    image: 'https://i.postimg.cc/9fFZdwF3/Screenshot2026-04-0417391.jpg',
     video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   {
