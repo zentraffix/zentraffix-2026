@@ -15,11 +15,23 @@ const projects = [
   {
     title: 'Aruls Cargo Insurance',
     category: 'Websites',
-    image: 'https://i.postimg.cc/9fPfvHHc/Screenshot-2026-04-04-115139.png',
+    image: 'https://i.postimg.cc/MZc03B0z/Screenshot2026-04-0411513.jpg',
     link: 'https://arulscargoinsurance.com/',
   },
   {
-    title: 'Instagram Reel',
+    title: 'Mechatron Motors',
+    category: 'Videos',
+    image: 'https://via.placeholder.com/400x300',
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+  },
+  {
+    title: 'JMJ Catering',
+    category: 'Videos',
+    image: 'https://via.placeholder.com/400x300',
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+  },
+  {
+    title: 'SIRT Mech',
     category: 'Videos',
     image: 'https://via.placeholder.com/400x300',
     video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
