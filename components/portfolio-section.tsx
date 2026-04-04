@@ -33,15 +33,15 @@ const projects = [
   },
 
   {
-    title: 'Meta Ads Campaign',
-    category: 'Meta Ads',
-    image: 'https://i.postimg.cc/gkdNrDL7/Screenshot2026-04-0418415.jpg',
-  },
-  {
-    title: 'Google Ads Report',
-    category: 'Google Ads',
-    image: 'https://i.postimg.cc/QNBH1G1N/Time-serie.jpg',
-  },
+  title: 'Meta Ads Campaign',
+  category: 'Meta Ads',
+  image: 'https://images.unsplash.com/photo-1557838923-2985c318be48?w=800',
+},
+{
+  title: 'Google Ads Report',
+  category: 'Google Ads',
+  image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+},
 ];
 
 export default function PortfolioSection() {
