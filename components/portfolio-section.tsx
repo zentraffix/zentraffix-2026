@@ -187,13 +187,16 @@ export default function PortfolioSection() {
                   {/* Reel Previews */}
                   <div className="grid md:grid-cols-3 gap-4">
                     {selected.reels.map((reel, i) => (
-                      <iframe
-                        key={i}
-                        src={getEmbedUrl(reel)}
-                        className="w-full h-[300px] rounded-xl"
-                        allowFullScreen
-                      />
-                    ))}
+  <iframe
+    key={i}
+    src={getEmbedUrl(reel)}
+    className="w-full h-[320px] rounded-xl border"
+    loading="lazy"
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+    allowFullScreen
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+))}
                   </div>
                 </>
               )}
