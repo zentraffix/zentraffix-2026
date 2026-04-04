@@ -68,7 +68,7 @@ export default function PortfolioSection() {
                 ${
                   active === cat
                     ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105'
-                    : 'border-gray-400 text-gray-800 dark:text-gray-200 hover:border-white hover:bg-white/20 dark:hover:bg-white/10 hover:scale-105'
+                    : 'border-gray-400 text-gray-800 dark:text-gray-800 hover:border-white hover:bg-white/20 dark:hover:bg-white/10 hover:scale-105'
                 }
               `}
             >
