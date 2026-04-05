@@ -58,12 +58,12 @@ const projects: Project[] = [
   {
     title: 'JMJ Catering',
     category: 'Ads',
-    image: 'https://i.postimg.cc/8kzXKX3H/sample-ad1.jpg',
+    image: 'https://i.postimg.cc/QNBH1G1N/Time-serie.jpg',
     platform: 'Google Ads',
     performance: {
       ctr: '3.8%',
       leads: '120 Leads',
-      budget: '₹5,000',
+      budget: '₹1,500',
     },
   },
   {
@@ -74,16 +74,16 @@ const projects: Project[] = [
     performance: {
       ctr: '5.1%',
       leads: '210 Leads',
-      budget: '₹8,000',
+      budget: '₹2,000',
     },
   },
   {
-    title: 'JMJ Catering Designs',
+    title: 'JMJ Catering',
     category: 'Designs',
-    image: 'https://i.postimg.cc/xyz/design1.jpg',
+    image: 'https://i.postimg.cc/hGBJXVkr/Screenshot2026-04-0513471.jpg',
   },
   {
-    title: 'Mechatron Motors Designs',
+    title: 'Mechatron Motors',
     category: 'Designs',
     image: 'https://i.postimg.cc/xyz/design4.jpg',
   },
