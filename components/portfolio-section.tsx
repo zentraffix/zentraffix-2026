@@ -105,7 +105,7 @@ export default function PortfolioSection() {
       {/* Heading */}
       <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Our Services
+            Our Portfolio
           </h2>
           <div className="w-24 h-1 bg-indigo-500 mx-auto my-6 rounded-full"></div>
       </div>
