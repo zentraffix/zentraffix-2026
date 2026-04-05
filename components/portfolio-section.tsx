@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-/* ✅ TYPE FIX (IMPORTANT) */
+/* ================= TYPE ================= */
 type Project = {
   title: string;
   category: string;
@@ -12,17 +12,18 @@ type Project = {
   profile?: string;
   reels?: string[];
   ads?: string[];
+  designs?: string[];
   platform?: string;
   performance?: {
-    ctr: string;
-    leads: string;
-    budget: string;
+    ctr?: string;
+    leads?: string;
+    budget?: string;
   };
 };
 
-const categories = ['All', 'Websites', 'Videos', 'Ads'];
+const categories = ['All', 'Websites', 'Videos', 'Ads', 'Designs'];
 
-/* ✅ PROJECT DATA */
+/* ================= DATA ================= */
 const projects: Project[] = [
   // 🌐 WEBSITES
   {
@@ -48,6 +49,28 @@ const projects: Project[] = [
       'https://www.instagram.com/reel/DO8w-eck8qd/',
       'https://www.instagram.com/reel/DOOA5zmE-Hf/',
       'https://www.instagram.com/reel/DO7lnU9E4OY/',
+    ],
+  },
+  {
+    title: 'JMJ Catering Reels',
+    category: 'Videos',
+    image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
+    profile: 'https://www.instagram.com/jmjcateringcbe27_official/',
+    reels: [
+      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
+      'https://www.instagram.com/reel/DO8w-eck8qd/',
+      'https://www.instagram.com/reel/DO7lnU9E4OY/',
+    ],
+  },
+  {
+    title: 'SIRT Mech',
+    category: 'Videos',
+    image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
+    profile: 'https://www.instagram.com/sritmech/',
+    reels: [
+      'https://www.instagram.com/reel/DO7lnU9E4OY/',
+      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
+      'https://www.instagram.com/reel/DO8w-eck8qd/',
     ],
   },
 
@@ -84,8 +107,31 @@ const projects: Project[] = [
       'https://i.postimg.cc/VL1kWwzC/sample-ad3.jpg',
     ],
   },
+
+  // 🎨 DESIGNS
+  {
+    title: 'JMJ Catering Designs',
+    category: 'Designs',
+    image: 'https://i.postimg.cc/xyz/design1.jpg',
+    designs: [
+      'https://i.postimg.cc/xyz/design1.jpg',
+      'https://i.postimg.cc/xyz/design2.jpg',
+      'https://i.postimg.cc/xyz/design3.jpg',
+    ],
+  },
+  {
+    title: 'Mechatron Motors Designs',
+    category: 'Designs',
+    image: 'https://i.postimg.cc/xyz/design4.jpg',
+    designs: [
+      'https://i.postimg.cc/xyz/design4.jpg',
+      'https://i.postimg.cc/xyz/design5.jpg',
+      'https://i.postimg.cc/xyz/design6.jpg',
+    ],
+  },
 ];
 
+/* ================= COMPONENT ================= */
 export default function PortfolioSection() {
   const [active, setActive] = useState('All');
   const [selected, setSelected] = useState<Project | null>(null);
@@ -96,154 +142,113 @@ export default function PortfolioSection() {
       : projects.filter((p) => p.category === active);
 
   return (
-    <section id="portfolio" className="py-24 lg:py-32">
-      <div className="w-full px-6 lg:px-16">
+    <section id="portfolio" className="py-24 px-6 lg:px-16">
 
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Our Portfolio
-          </h2>
-          <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
-        </div>
+      {/* HEADING */}
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+          Our Portfolio
+        </h2>
+      </div>
 
-        {/* Filters */}
-        <div className="flex justify-center gap-4 flex-wrap mb-12 bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition ${
-                active === cat
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white scale-105'
-                  : 'border border-gray-400 hover:bg-white/10'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+      {/* FILTER */}
+      <div className="flex justify-center gap-4 flex-wrap mb-12">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setActive(cat)}
+            className={`px-5 py-2 rounded-full transition ${
+              active === cat
+                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
+                : 'border border-gray-400'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {filtered.map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md"
-              onClick={() => setSelected(item)}
-            >
-              <img
-                src={item.image}
-                className="w-full h-64 object-cover group-hover:scale-110 transition"
-              />
-
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center">
-                <h3 className="text-white font-semibold">{item.title}</h3>
-                <p className="text-gray-300 text-sm">{item.category}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      {/* GRID */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {filtered.map((item, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.05 }}
+            onClick={() => setSelected(item)}
+            className="cursor-pointer rounded-xl overflow-hidden shadow-lg"
+          >
+            <img src={item.image} className="h-64 w-full object-cover" />
+          </motion.div>
+        ))}
       </div>
 
       {/* MODAL */}
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4"
+            className="fixed inset-0 bg-black/80 flex justify-center items-center p-4 z-50"
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-5xl w-full relative"
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 max-w-5xl w-full text-white"
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                className="absolute top-3 right-3"
-                onClick={() => setSelected(null)}
-              >
-                ✕
-              </button>
+              {/* TITLE */}
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-indigo-500 text-transparent bg-clip-text">
+                {selected.title}
+              </h2>
 
-              <h2 className="text-2xl font-bold mb-6">{selected.title}</h2>
-
-              {/* WEBSITE */}
+              {/* BUTTONS */}
               {selected.link && (
                 <a
                   href={selected.link}
                   target="_blank"
-                  className="bg-black text-white px-4 py-2 rounded"
+                  className="inline-block mr-3 mb-4 px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"
                 >
-                  Visit Website
+                  🌐 Visit Website
                 </a>
               )}
 
-              {/* VIDEOS */}
-              {selected.reels && (
-                <>
-                  <button
-                    onClick={() => window.open(selected.profile, '_blank')}
-                    className="mb-4 bg-pink-600 text-white px-4 py-2 rounded"
-                  >
-                    Open Instagram
-                  </button>
-
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {selected.reels.map((reel, i) => (
-                      <div
-                        key={i}
-                        onClick={() => window.open(reel, '_blank')}
-                        className="cursor-pointer"
-                      >
-                        <img
-                          src={selected.image}
-                          className="h-[260px] w-full object-cover rounded-xl"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </>
+              {selected.profile && (
+                <button
+                  onClick={() => window.open(selected.profile, '_blank')}
+                  className="mb-4 px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 to-orange-500"
+                >
+                  📸 Open Profile
+                </button>
               )}
 
-              {/* ADS */}
-              {selected.ads && (
-                <>
-                  <p className="text-sm text-gray-400 mb-4">
-                    Platform: {selected.platform}
-                  </p>
-
-                  {/* METRICS */}
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="p-4 bg-gray-100 rounded-xl text-center">
-                      <p className="text-sm">CTR</p>
-                      <p className="font-bold">{selected.performance?.ctr}</p>
-                    </div>
-                    <div className="p-4 bg-gray-100 rounded-xl text-center">
-                      <p className="text-sm">Leads</p>
-                      <p className="font-bold">{selected.performance?.leads}</p>
-                    </div>
-                    <div className="p-4 bg-gray-100 rounded-xl text-center">
-                      <p className="text-sm">Budget</p>
-                      <p className="font-bold">{selected.performance?.budget}</p>
-                    </div>
+              {/* METRICS */}
+              {selected.performance && (
+                <div className="grid grid-cols-3 gap-4 mb-6">
+                  <div className="bg-white/10 p-4 rounded-xl text-center">
+                    CTR<br />{selected.performance.ctr}
                   </div>
-
-                  {/* AD IMAGES */}
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {selected.ads.map((ad, i) => (
-                      <img
-                        key={i}
-                        src={ad}
-                        className="h-[260px] w-full object-cover rounded-xl"
-                      />
-                    ))}
+                  <div className="bg-white/10 p-4 rounded-xl text-center">
+                    Leads<br />{selected.performance.leads}
                   </div>
-                </>
+                  <div className="bg-white/10 p-4 rounded-xl text-center">
+                    Budget<br />{selected.performance.budget}
+                  </div>
+                </div>
               )}
+
+              {/* IMAGES */}
+              <div className="grid md:grid-cols-3 gap-4">
+                {(selected.ads || selected.designs || selected.reels)?.map((_, i) => (
+                  <img
+                    key={i}
+                    src={selected.image}
+                    className="h-[260px] w-full object-cover rounded-xl"
+                  />
+                ))}
+              </div>
+
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </section>
   );
 }
