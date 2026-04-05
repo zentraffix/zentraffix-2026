@@ -85,7 +85,7 @@ const projects: Project[] = [
   {
     title: 'Mechatron Motors',
     category: 'Designs',
-    image: 'https://i.postimg.cc/xyz/design4.jpg',
+    image: 'https://i.postimg.cc/HstW6FRb/Screenshot2026-04-0513501.jpg',
   },
 ];
 
