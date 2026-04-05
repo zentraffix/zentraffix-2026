@@ -69,7 +69,7 @@ const projects: Project[] = [
   {
     title: 'JMJ Catering',
     category: 'Ads',
-    image: 'https://i.postimg.cc/JzT2w7rQ/sample-ad4.jpg',
+    image: 'https://i.postimg.cc/gkdNrDL7/Screenshot2026-04-0418415.jpg',
     platform: 'Meta Ads',
     performance: {
       ctr: '5.1%',
