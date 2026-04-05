@@ -42,52 +42,32 @@ const projects: Project[] = [
     category: 'Videos',
     image: 'https://i.postimg.cc/9fFZdwF3/Screenshot2026-04-0417391.jpg',
     profile: 'https://www.instagram.com/mechatron_motors/',
-    reels: [
-      'https://www.instagram.com/reel/DO8w-eck8qd/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DO7lnU9E4OY/',
-    ],
   },
   {
-    title: 'JMJ Catering Reels',
+    title: 'JMJ Catering',
     category: 'Videos',
     image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
     profile: 'https://www.instagram.com/jmjcateringcbe27_official/',
-    reels: [
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DO8w-eck8qd/',
-      'https://www.instagram.com/reel/DO7lnU9E4OY/',
-    ],
   },
   {
     title: 'SIRT Mech',
     category: 'Videos',
     image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
     profile: 'https://www.instagram.com/sritmech/',
-    reels: [
-      'https://www.instagram.com/reel/DO7lnU9E4OY/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DO8w-eck8qd/',
-    ],
   },
   {
-    title: 'JMJ Catering Ads',
+    title: 'JMJ Catering',
     category: 'Ads',
     image: 'https://i.postimg.cc/8kzXKX3H/sample-ad1.jpg',
-    platform: 'Meta & Google Ads',
+    platform: 'Google Ads',
     performance: {
       ctr: '3.8%',
       leads: '120 Leads',
       budget: '₹5,000',
     },
-    ads: [
-      'https://i.postimg.cc/8kzXKX3H/sample-ad1.jpg',
-      'https://i.postimg.cc/3w1pZ6kQ/sample-ad2.jpg',
-      'https://i.postimg.cc/VL1kWwzC/sample-ad3.jpg',
-    ],
   },
   {
-    title: 'Mechatron Motors Ads',
+    title: 'JMJ Catering',
     category: 'Ads',
     image: 'https://i.postimg.cc/JzT2w7rQ/sample-ad4.jpg',
     platform: 'Meta Ads',
@@ -96,31 +76,16 @@ const projects: Project[] = [
       leads: '210 Leads',
       budget: '₹8,000',
     },
-    ads: [
-      'https://i.postimg.cc/JzT2w7rQ/sample-ad4.jpg',
-      'https://i.postimg.cc/3w1pZ6kQ/sample-ad2.jpg',
-      'https://i.postimg.cc/VL1kWwzC/sample-ad3.jpg',
-    ],
   },
   {
     title: 'JMJ Catering Designs',
     category: 'Designs',
     image: 'https://i.postimg.cc/xyz/design1.jpg',
-    designs: [
-      'https://i.postimg.cc/xyz/design1.jpg',
-      'https://i.postimg.cc/xyz/design2.jpg',
-      'https://i.postimg.cc/xyz/design3.jpg',
-    ],
   },
   {
     title: 'Mechatron Motors Designs',
     category: 'Designs',
     image: 'https://i.postimg.cc/xyz/design4.jpg',
-    designs: [
-      'https://i.postimg.cc/xyz/design4.jpg',
-      'https://i.postimg.cc/xyz/design5.jpg',
-      'https://i.postimg.cc/xyz/design6.jpg',
-    ],
   },
 ];
 
