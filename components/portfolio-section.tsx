@@ -181,7 +181,7 @@ export default function PortfolioSection() {
                 <h3 className="text-white text-lg font-semibold">
                   {item.title}
                 </h3>
-                <p className="text-gray-300 text-sm">
+                <p className="text-white-300 text-sm">
                   {item.category}
                 </p>
               </div>
