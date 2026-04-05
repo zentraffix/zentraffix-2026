@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const categories = ['All', 'Websites', 'Videos', 'Meta Ads', 'Google Ads'];
+const categories = ['All', 'Websites', 'Videos'];
 
 const projects = [
   // 🌐 WEBSITES
@@ -53,18 +53,6 @@ const projects = [
       'https://www.instagram.com/reel/DOOA5zmE-Hf/',
       'https://www.instagram.com/reel/DO8w-eck8qd/',
     ],
-  },
-
-  // 📊 ADS
-  {
-    title: 'Meta Ads Campaign',
-    category: 'Meta Ads',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
-  },
-  {
-    title: 'Google Ads Report',
-    category: 'Google Ads',
-    image: 'https://i.postimg.cc/QNBH1G1N/Time-serie.jpg',
   },
 ];
 
@@ -160,42 +148,47 @@ export default function PortfolioSection() {
                 {selected.title}
               </h2>
 
-             {/* WEBSITE */}
-{selected.link && (
-  <a href={selected.link} target="_blank" className="inline-block mb-6 bg-black text-white px-4 py-2 rounded">
-    Visit Website
-  </a>
-)}
+              {/* WEBSITE */}
+              {selected.link && (
+                <a
+                  href={selected.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mb-6 bg-black text-white px-4 py-2 rounded"
+                >
+                  Visit Website
+                </a>
+              )}
 
-{/* VIDEOS */}
-{selected.reels && (
-  <>
-    <button
-      onClick={() => window.open(selected.profile, '_blank')}
-      className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
-    >
-      Open Instagram Profile
-    </button>
+              {/* VIDEOS */}
+              {selected.reels && (
+                <>
+                  <button
+                    onClick={() => window.open(selected.profile, '_blank')}
+                    className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
+                  >
+                    Open Instagram Profile
+                  </button>
 
-    <div className="grid md:grid-cols-3 gap-4">
-      {selected.reels.map((reel, i) => (
-        <div key={i} onClick={() => window.open(reel, '_blank')}>
-          <img src={selected.image} className="w-full h-[260px] object-cover rounded-xl" />
-        </div>
-      ))}
-    </div>
-  </>
-)}
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {selected.reels.map((reel, i) => (
+                      <div
+                        key={i}
+                        onClick={() => window.open(reel, '_blank')}
+                        className="relative cursor-pointer group"
+                      >
+                        <img
+                          src={selected.image}
+                          className="w-full h-[260px] object-cover rounded-xl"
+                        />
 
-{/* ADS */}
-{!selected.reels && !selected.link && (
-  <img
-    src={selected.image}
-    className="w-full h-[400px] object-cover rounded-xl mt-4"
-  />
-)}
-                  className="w-full rounded-xl mt-4"
-                />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
+                          <div className="text-white text-3xl">▶</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
               )}
             </motion.div>
           </motion.div>
