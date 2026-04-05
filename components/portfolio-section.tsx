@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const categories = ['All', 'Websites', 'Videos'];
+const categories = ['All', 'Websites', 'Videos', 'Ads'];
 
 const projects = [
   // 🌐 WEBSITES
@@ -20,7 +20,7 @@ const projects = [
     link: 'https://arulscargoinsurance.com/',
   },
 
-  // 🎬 VIDEOS (INSTAGRAM)
+  // 🎬 VIDEOS
   {
     title: 'Mechatron Motors',
     category: 'Videos',
@@ -32,26 +32,38 @@ const projects = [
       'https://www.instagram.com/reel/DO7lnU9E4OY/',
     ],
   },
+
+  // 📢 ADS
   {
-    title: 'JMJ Catering Reels',
-    category: 'Videos',
-    image: 'https://i.postimg.cc/zGdV1t50/Screenshot2026-04-0417421.jpg',
-    profile: 'https://www.instagram.com/jmjcateringcbe27_official/',
-    reels: [
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DO8w-eck8qd/',
-      'https://www.instagram.com/reel/DO7lnU9E4OY/',
+    title: 'JMJ Catering Ads',
+    category: 'Ads',
+    image: 'https://i.postimg.cc/8kzXKX3H/sample-ad1.jpg',
+    platform: 'Meta & Google Ads',
+    performance: {
+      ctr: '3.8%',
+      leads: '120 Leads',
+      budget: '₹5,000',
+    },
+    ads: [
+      'https://i.postimg.cc/8kzXKX3H/sample-ad1.jpg',
+      'https://i.postimg.cc/3w1pZ6kQ/sample-ad2.jpg',
+      'https://i.postimg.cc/VL1kWwzC/sample-ad3.jpg',
     ],
   },
   {
-    title: 'SIRT Mech',
-    category: 'Videos',
-    image: 'https://i.postimg.cc/fTN37SBY/Screenshot2026-04-0417405.jpg',
-    profile: 'https://www.instagram.com/sritmech/',
-    reels: [
-      'https://www.instagram.com/reel/DO7lnU9E4OY/',
-      'https://www.instagram.com/reel/DOOA5zmE-Hf/',
-      'https://www.instagram.com/reel/DO8w-eck8qd/',
+    title: 'Mechatron Motors Ads',
+    category: 'Ads',
+    image: 'https://i.postimg.cc/JzT2w7rQ/sample-ad4.jpg',
+    platform: 'Meta Ads',
+    performance: {
+      ctr: '5.1%',
+      leads: '210 Leads',
+      budget: '₹8,000',
+    },
+    ads: [
+      'https://i.postimg.cc/JzT2w7rQ/sample-ad4.jpg',
+      'https://i.postimg.cc/3w1pZ6kQ/sample-ad2.jpg',
+      'https://i.postimg.cc/VL1kWwzC/sample-ad3.jpg',
     ],
   },
 ];
@@ -105,10 +117,6 @@ export default function PortfolioSection() {
             >
               <img
                 src={item.image}
-                onError={(e) => {
-                  e.currentTarget.src =
-                    'https://via.placeholder.com/400x300?text=Preview+Not+Available';
-                }}
                 className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
               />
 
@@ -136,7 +144,6 @@ export default function PortfolioSection() {
               className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-5xl w-full relative"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close */}
               <button
                 className="absolute top-3 right-3 text-xl"
                 onClick={() => setSelected(null)}
@@ -186,6 +193,42 @@ export default function PortfolioSection() {
                           <div className="text-white text-3xl">▶</div>
                         </div>
                       </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* ADS */}
+              {selected.ads && (
+                <>
+                  <p className="mb-4 text-sm text-gray-400">
+                    Platform: {selected.platform}
+                  </p>
+
+                  {/* Metrics */}
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="p-4 bg-gray-100 dark:bg-neutral-800 rounded-xl text-center">
+                      <p className="text-sm text-gray-500">CTR</p>
+                      <p className="text-lg font-bold">{selected.performance.ctr}</p>
+                    </div>
+                    <div className="p-4 bg-gray-100 dark:bg-neutral-800 rounded-xl text-center">
+                      <p className="text-sm text-gray-500">Leads</p>
+                      <p className="text-lg font-bold">{selected.performance.leads}</p>
+                    </div>
+                    <div className="p-4 bg-gray-100 dark:bg-neutral-800 rounded-xl text-center">
+                      <p className="text-sm text-gray-500">Budget</p>
+                      <p className="text-lg font-bold">{selected.performance.budget}</p>
+                    </div>
+                  </div>
+
+                  {/* Ads Images */}
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {selected.ads.map((ad, i) => (
+                      <img
+                        key={i}
+                        src={ad}
+                        className="w-full h-[260px] object-cover rounded-xl"
+                      />
                     ))}
                   </div>
                 </>
