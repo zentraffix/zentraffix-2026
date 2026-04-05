@@ -219,7 +219,7 @@ export default function PortfolioSection() {
                   <a
                     href={selected.link}
                     target="_blank"
-                    className="px-5 py-2 rounded-lg bg-black text-white hover:opacity-90"
+                    className="px-5 py-2 rounded-lg  text-white hover:opacity-90"
                   >
                     Visit Website
                   </a>
