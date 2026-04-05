@@ -3,9 +3,27 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+/* ✅ TYPE FIX (IMPORTANT) */
+type Project = {
+  title: string;
+  category: string;
+  image: string;
+  link?: string;
+  profile?: string;
+  reels?: string[];
+  ads?: string[];
+  platform?: string;
+  performance?: {
+    ctr: string;
+    leads: string;
+    budget: string;
+  };
+};
+
 const categories = ['All', 'Websites', 'Videos', 'Ads'];
 
-const projects = [
+/* ✅ PROJECT DATA */
+const projects: Project[] = [
   // 🌐 WEBSITES
   {
     title: 'JMJ Catering',
@@ -70,7 +88,7 @@ const projects = [
 
 export default function PortfolioSection() {
   const [active, setActive] = useState('All');
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<Project | null>(null);
 
   const filtered =
     active === 'All'
@@ -95,10 +113,10 @@ export default function PortfolioSection() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition ${
                 active === cat
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-transparent shadow-lg scale-105'
-                  : 'border-gray-500 hover:border-white hover:bg-white/10 hover:scale-105'
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white scale-105'
+                  : 'border border-gray-400 hover:bg-white/10'
               }`}
             >
               {cat}
@@ -112,27 +130,24 @@ export default function PortfolioSection() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl"
+              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md"
               onClick={() => setSelected(item)}
             >
               <img
                 src={item.image}
-                className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
+                className="w-full h-64 object-cover group-hover:scale-110 transition"
               />
 
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center px-4">
-                <h3 className="text-lg font-semibold mb-2 text-white">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-300">{item.category}</p>
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center">
+                <h3 className="text-white font-semibold">{item.title}</h3>
+                <p className="text-gray-300 text-sm">{item.category}</p>
               </div>
             </motion.div>
           ))}
         </div>
-
       </div>
 
-      {/* Modal */}
+      {/* MODAL */}
       <AnimatePresence>
         {selected && (
           <motion.div
@@ -140,28 +155,24 @@ export default function PortfolioSection() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              key={selected.title}
               className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-5xl w-full relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-3 right-3 text-xl"
+                className="absolute top-3 right-3"
                 onClick={() => setSelected(null)}
               >
                 ✕
               </button>
 
-              <h2 className="text-2xl font-bold mb-6">
-                {selected.title}
-              </h2>
+              <h2 className="text-2xl font-bold mb-6">{selected.title}</h2>
 
               {/* WEBSITE */}
               {selected.link && (
                 <a
                   href={selected.link}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mb-6 bg-black text-white px-4 py-2 rounded"
+                  className="bg-black text-white px-4 py-2 rounded"
                 >
                   Visit Website
                 </a>
@@ -172,9 +183,9 @@ export default function PortfolioSection() {
                 <>
                   <button
                     onClick={() => window.open(selected.profile, '_blank')}
-                    className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
+                    className="mb-4 bg-pink-600 text-white px-4 py-2 rounded"
                   >
-                    Open Instagram Profile
+                    Open Instagram
                   </button>
 
                   <div className="grid md:grid-cols-3 gap-4">
@@ -182,16 +193,12 @@ export default function PortfolioSection() {
                       <div
                         key={i}
                         onClick={() => window.open(reel, '_blank')}
-                        className="relative cursor-pointer group"
+                        className="cursor-pointer"
                       >
                         <img
                           src={selected.image}
-                          className="w-full h-[260px] object-cover rounded-xl"
+                          className="h-[260px] w-full object-cover rounded-xl"
                         />
-
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
-                          <div className="text-white text-3xl">▶</div>
-                        </div>
                       </div>
                     ))}
                   </div>
@@ -201,33 +208,33 @@ export default function PortfolioSection() {
               {/* ADS */}
               {selected.ads && (
                 <>
-                  <p className="mb-4 text-sm text-gray-400">
+                  <p className="text-sm text-gray-400 mb-4">
                     Platform: {selected.platform}
                   </p>
 
-                  {/* Metrics */}
+                  {/* METRICS */}
                   <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="p-4 bg-gray-100 dark:bg-neutral-800 rounded-xl text-center">
-                      <p className="text-sm text-gray-500">CTR</p>
-                      <p className="text-lg font-bold">{selected.performance.ctr}</p>
+                    <div className="p-4 bg-gray-100 rounded-xl text-center">
+                      <p className="text-sm">CTR</p>
+                      <p className="font-bold">{selected.performance?.ctr}</p>
                     </div>
-                    <div className="p-4 bg-gray-100 dark:bg-neutral-800 rounded-xl text-center">
-                      <p className="text-sm text-gray-500">Leads</p>
-                      <p className="text-lg font-bold">{selected.performance.leads}</p>
+                    <div className="p-4 bg-gray-100 rounded-xl text-center">
+                      <p className="text-sm">Leads</p>
+                      <p className="font-bold">{selected.performance?.leads}</p>
                     </div>
-                    <div className="p-4 bg-gray-100 dark:bg-neutral-800 rounded-xl text-center">
-                      <p className="text-sm text-gray-500">Budget</p>
-                      <p className="text-lg font-bold">{selected.performance.budget}</p>
+                    <div className="p-4 bg-gray-100 rounded-xl text-center">
+                      <p className="text-sm">Budget</p>
+                      <p className="font-bold">{selected.performance?.budget}</p>
                     </div>
                   </div>
 
-                  {/* Ads Images */}
+                  {/* AD IMAGES */}
                   <div className="grid md:grid-cols-3 gap-4">
                     {selected.ads.map((ad, i) => (
                       <img
                         key={i}
                         src={ad}
-                        className="w-full h-[260px] object-cover rounded-xl"
+                        className="h-[260px] w-full object-cover rounded-xl"
                       />
                     ))}
                   </div>
