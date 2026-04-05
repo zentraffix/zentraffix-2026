@@ -100,7 +100,7 @@ export default function PortfolioSection() {
       : projects.filter((p) => p.category === active);
 
   return (
-    <section className="py-24 px-6 lg:px-16">
+    <section id="portfolio" className="py-24 px-6 lg:px-16">
 
       {/* Heading */}
       <div className="text-center mb-16">
