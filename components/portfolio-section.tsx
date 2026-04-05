@@ -237,14 +237,14 @@ export default function PortfolioSection() {
 
               {/* Metrics */}
               {selected.performance && (
-                <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300">
                   <div className="p-4 border rounded-xl text-center">
                     CTR<br /><strong>{selected.performance.ctr}</strong>
                   </div>
-                  <div className="p-4 border rounded-xl text-center">
+                  <div className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300">
                     Leads<br /><strong>{selected.performance.leads}</strong>
                   </div>
-                  <div className="p-4 border rounded-xl text-center">
+                  <div className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300">
                     Budget<br /><strong>{selected.performance.budget}</strong>
                   </div>
                 </div>
