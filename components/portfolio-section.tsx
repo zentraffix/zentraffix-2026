@@ -208,7 +208,7 @@ export default function PortfolioSection() {
 
               {/* Platform Badge */}
               {selected.platform && (
-                <span className="inline-block mb-4 px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-neutral-800">
+                <span className="inline-block mb-4 px-3 py-1 text-white rounded-full bg-gray-200 dark:bg-neutral-800">
                   {selected.platform}
                 </span>
               )}
