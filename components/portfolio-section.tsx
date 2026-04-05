@@ -25,7 +25,6 @@ const categories = ['All', 'Websites', 'Videos', 'Ads', 'Designs'];
 
 /* ================= DATA ================= */
 const projects: Project[] = [
-  // 🌐 WEBSITES
   {
     title: 'JMJ Catering',
     category: 'Websites',
@@ -38,8 +37,6 @@ const projects: Project[] = [
     image: 'https://i.postimg.cc/MZc03B0z/Screenshot2026-04-0411513.jpg',
     link: 'https://arulscargoinsurance.com/',
   },
-
-  // 🎬 VIDEOS
   {
     title: 'Mechatron Motors',
     category: 'Videos',
@@ -73,8 +70,6 @@ const projects: Project[] = [
       'https://www.instagram.com/reel/DO8w-eck8qd/',
     ],
   },
-
-  // 📢 ADS
   {
     title: 'JMJ Catering Ads',
     category: 'Ads',
@@ -107,8 +102,6 @@ const projects: Project[] = [
       'https://i.postimg.cc/VL1kWwzC/sample-ad3.jpg',
     ],
   },
-
-  // 🎨 DESIGNS
   {
     title: 'JMJ Catering Designs',
     category: 'Designs',
@@ -142,25 +135,25 @@ export default function PortfolioSection() {
       : projects.filter((p) => p.category === active);
 
   return (
-    <section id="portfolio" className="py-24 px-6 lg:px-16">
+    <section className="py-24 px-6 lg:px-16">
 
-      {/* HEADING */}
+      {/* Heading */}
       <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+        <h2 className="text-5xl font-bold tracking-tight">
           Our Portfolio
         </h2>
       </div>
 
-      {/* FILTER */}
-      <div className="flex justify-center gap-4 flex-wrap mb-12">
+      {/* Filters */}
+      <div className="flex justify-center gap-4 mb-12 flex-wrap">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-5 py-2 rounded-full transition ${
+            className={`px-5 py-2 rounded-full border transition ${
               active === cat
-                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
-                : 'border border-gray-400'
+                ? 'bg-black text-white'
+                : 'border-gray-400 hover:bg-gray-100'
             }`}
           >
             {cat}
@@ -168,16 +161,31 @@ export default function PortfolioSection() {
         ))}
       </div>
 
-      {/* GRID */}
+      {/* Grid */}
       <div className="grid md:grid-cols-3 gap-6">
         {filtered.map((item, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             onClick={() => setSelected(item)}
-            className="cursor-pointer rounded-xl overflow-hidden shadow-lg"
+            className="group cursor-pointer rounded-xl overflow-hidden shadow-md"
           >
-            <img src={item.image} className="h-64 w-full object-cover" />
+            <div className="relative">
+              <img
+                src={item.image}
+                className="h-64 w-full object-cover transition group-hover:scale-105"
+              />
+
+              {/* Premium Overlay */}
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
+                <h3 className="text-white text-lg font-semibold">
+                  {item.title}
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  {item.category}
+                </p>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -186,59 +194,68 @@ export default function PortfolioSection() {
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 bg-black/80 flex justify-center items-center p-4 z-50"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center p-4 z-50"
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 max-w-5xl w-full text-white"
+              className="bg-white dark:bg-neutral-900 rounded-2xl p-8 max-w-5xl w-full shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* TITLE */}
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-indigo-500 text-transparent bg-clip-text">
+              {/* Title */}
+              <h2 className="text-3xl font-bold mb-4">
                 {selected.title}
               </h2>
 
-              {/* BUTTONS */}
-              {selected.link && (
-                <a
-                  href={selected.link}
-                  target="_blank"
-                  className="inline-block mr-3 mb-4 px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"
-                >
-                  🌐 Visit Website
-                </a>
+              {/* Platform Badge */}
+              {selected.platform && (
+                <span className="inline-block mb-4 px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-neutral-800">
+                  {selected.platform}
+                </span>
               )}
 
-              {selected.profile && (
-                <button
-                  onClick={() => window.open(selected.profile, '_blank')}
-                  className="mb-4 px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 to-orange-500"
-                >
-                  📸 Open Profile
-                </button>
-              )}
+              {/* Buttons */}
+              <div className="flex gap-4 mb-6 flex-wrap">
+                {selected.link && (
+                  <a
+                    href={selected.link}
+                    target="_blank"
+                    className="px-5 py-2 rounded-lg bg-black text-white hover:opacity-90"
+                  >
+                    Visit Website
+                  </a>
+                )}
 
-              {/* METRICS */}
+                {selected.profile && (
+                  <button
+                    onClick={() => window.open(selected.profile, '_blank')}
+                    className="px-5 py-2 rounded-lg border border-black hover:bg-black hover:text-white"
+                  >
+                    View Profile
+                  </button>
+                )}
+              </div>
+
+              {/* Metrics */}
               {selected.performance && (
                 <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="bg-white/10 p-4 rounded-xl text-center">
-                    CTR<br />{selected.performance.ctr}
+                  <div className="p-4 border rounded-xl text-center">
+                    CTR<br /><strong>{selected.performance.ctr}</strong>
                   </div>
-                  <div className="bg-white/10 p-4 rounded-xl text-center">
-                    Leads<br />{selected.performance.leads}
+                  <div className="p-4 border rounded-xl text-center">
+                    Leads<br /><strong>{selected.performance.leads}</strong>
                   </div>
-                  <div className="bg-white/10 p-4 rounded-xl text-center">
-                    Budget<br />{selected.performance.budget}
+                  <div className="p-4 border rounded-xl text-center">
+                    Budget<br /><strong>{selected.performance.budget}</strong>
                   </div>
                 </div>
               )}
 
-              {/* IMAGES */}
+              {/* Images */}
               <div className="grid md:grid-cols-3 gap-4">
-                {(selected.ads || selected.designs || selected.reels)?.map((_, i) => (
+                {(selected.ads || selected.designs || selected.reels)?.map((img, i) => (
                   <img
                     key={i}
-                    src={selected.image}
+                    src={img || selected.image}
                     className="h-[260px] w-full object-cover rounded-xl"
                   />
                 ))}
