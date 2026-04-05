@@ -251,15 +251,12 @@ export default function PortfolioSection() {
               )}
 
               {/* Images */}
-              <div className="grid md:grid-cols-3 gap-4">
-                {(selected.ads || selected.designs || selected.reels)?.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img || selected.image}
-                    className="h-[260px] w-full object-cover rounded-xl"
-                  />
-                ))}
-              </div>
+              <div className="w-full mt-6">
+  <img
+    src={selected.image}
+    className="w-full h-[350px] md:h-[420px] object-cover rounded-2xl shadow-xl transition duration-500 hover:scale-[1.02]"
+  />
+</div>
 
             </motion.div>
           </motion.div>
