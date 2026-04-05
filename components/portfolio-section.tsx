@@ -202,7 +202,7 @@ export default function PortfolioSection() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Title */}
-              <h2 className="text-3xl text-white font-bold mb-4">
+             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_0_15px_rgba(99,102,241,0.6)]">
                 {selected.title}
               </h2>
 
