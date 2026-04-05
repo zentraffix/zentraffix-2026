@@ -219,7 +219,7 @@ export default function PortfolioSection() {
                   <a
                     href={selected.link}
                     target="_blank"
-                    className="px-5 py-2 rounded-lg text-white hover:opacity-90"
+                    className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300"
                   >
                     Visit Website
                   </a>
@@ -228,7 +228,7 @@ export default function PortfolioSection() {
                 {selected.profile && (
                   <button
                     onClick={() => window.open(selected.profile, '_blank')}
-                    className="px-5 py-2 rounded-lg  text-white hover:opacity-90"
+                    className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300"
                   >
                     View Profile
                   </button>
