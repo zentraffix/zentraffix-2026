@@ -59,7 +59,7 @@ const projects = [
   {
     title: 'Meta Ads Campaign',
     category: 'Meta Ads',
-    image: 'https://i.postimg.cc/gkdNrDL7/Screenshot2026-04-0418415.jpg',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
   },
   {
     title: 'Google Ads Report',
