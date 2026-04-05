@@ -160,57 +160,40 @@ export default function PortfolioSection() {
                 {selected.title}
               </h2>
 
-              {/* Website */}
-              {selected.link && (
-                <a
-                  href={selected.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mb-6 bg-black text-white px-4 py-2 rounded"
-                >
-                  Visit Website
-                </a>
-              )}
+             {/* WEBSITE */}
+{selected.link && (
+  <a href={selected.link} target="_blank" className="inline-block mb-6 bg-black text-white px-4 py-2 rounded">
+    Visit Website
+  </a>
+)}
 
-              {/* Instagram */}
-              {selected.profile && (
-                <>
-                  <button
-                    onClick={() => window.open(selected.profile, '_blank')}
-                    className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
-                  >
-                    Open Instagram Profile
-                  </button>
+{/* VIDEOS */}
+{selected.reels && (
+  <>
+    <button
+      onClick={() => window.open(selected.profile, '_blank')}
+      className="mb-6 bg-pink-600 text-white px-4 py-2 rounded"
+    >
+      Open Instagram Profile
+    </button>
 
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {selected.reels.map((reel, i) => (
-                      <div
-                        key={i}
-                        onClick={() => window.open(reel, '_blank')}
-                        className="relative cursor-pointer group"
-                      >
-                        <img
-                          src={selected.image}
-                          className="w-full h-[260px] object-cover rounded-xl"
-                        />
+    <div className="grid md:grid-cols-3 gap-4">
+      {selected.reels.map((reel, i) => (
+        <div key={i} onClick={() => window.open(reel, '_blank')}>
+          <img src={selected.image} className="w-full h-[260px] object-cover rounded-xl" />
+        </div>
+      ))}
+    </div>
+  </>
+)}
 
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
-                          <div className="text-white text-3xl">▶</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
-
-              {/* Ads / Others Image */}
-              {!selected.profile && (
-                <img
-                  src={selected.image}
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      'https://via.placeholder.com/600x400?text=Preview+Not+Available';
-                  }}
+{/* ADS */}
+{!selected.reels && !selected.link && (
+  <img
+    src={selected.image}
+    className="w-full h-[400px] object-cover rounded-xl mt-4"
+  />
+)}
                   className="w-full rounded-xl mt-4"
                 />
               )}
