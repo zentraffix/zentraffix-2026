@@ -29,10 +29,10 @@ const teamMembers = [
     instagram: 'https://www.instagram.com/__harish05__?igsh=MXJuMXl5aHV1NW5paw==',
   },
   {
-    name: 'Hari Shankar R',
-    role: 'Editor',
-    linkedin: 'https://www.linkedin.com/in/emmapatel',
-    instagram: 'https://www.instagram.com/harsh.ravichandran?igsh=Mm5sYXNmd3Vtc3M=9',
+    name: 'Stephen A',
+    role: 'Web Developer',
+    linkedin: 'https://www.linkedin.com/in/stephen-a-50634b28b/',
+    instagram: 'https://www.instagram.com/steff.xxi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   },
 ];
 
