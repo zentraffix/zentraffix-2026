@@ -118,7 +118,7 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group bg-card border border-border rounded-2xl p-8 
+              className="group bg-white border border-gray-200 rounded-2xl p-8 
               hover:scale-105 hover:-translate-y-2 
               transition-all duration-300 hover:shadow-2xl cursor-pointer"
             >
@@ -162,7 +162,7 @@ export default function ServicesSection() {
             onClick={() => setSelectedService(null)}
           >
             <motion.div
-              className="bg-card rounded-2xl max-w-2xl w-full p-8 relative shadow-2xl"
+              className="bg-white rounded-2xl max-w-2xl w-full p-8 relative shadow-2xl"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}

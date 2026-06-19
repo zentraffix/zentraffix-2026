@@ -34,7 +34,7 @@ export default function Footer() {
   );
 
   return (
-    <footer className="bg-foreground/5 border-t border-border relative">
+    <footer className="bg-gray-50 border-t border-gray-200 relative">
       <div className="w-full px-8 lg:px-16 py-8">
         {/* Top Footer */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
@@ -43,20 +43,20 @@ export default function Footer() {
             <h3 className="text-2xl font-heading font-serif font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
               ZENTRAFFIX
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-gray-500">
               Engineering predictable growth for ambitious brands.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-bold text-foreground mb-4">Quick Links</h4>
+            <h4 className="font-heading font-bold text-gray-900 mb-4">Quick Links</h4>
             <ul className="space-y-3">
               {['Home', 'Services', 'About', 'Contact'].map(link => (
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-gray-500 hover:text-gray-900 transition-colors"
                   >
                     {link}
                   </a>
@@ -67,13 +67,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-bold text-foreground mb-4">Services</h4>
+            <h4 className="font-heading font-bold text-gray-900 mb-4">Services</h4>
             <ul className="space-y-3">
               {['Marketing', 'SEO', 'Social Media', 'Development'].map(service => (
                 <li key={service}>
                   <a
                     href="#services"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-gray-500 hover:text-gray-900 transition-colors"
                   >
                     {service}
                   </a>
@@ -84,12 +84,12 @@ export default function Footer() {
 
           {/* Contact & Socials */}
           <div>
-            <h4 className="font-heading font-bold text-foreground mb-4">Contact</h4>
+            <h4 className="font-heading font-bold text-gray-900 mb-4">Contact</h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:zentraffix@gmail.com"
-                  className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+                  className="text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-2"
                 >
                   <Mail className="w-4 h-4" /> zentraffix@gmail.com
                 </a>
@@ -104,13 +104,13 @@ export default function Footer() {
                   <MessageCircle className="w-5 h-5" /> WhatsApp Chat
                 </a>
               </li>
-              <li className="pt-4 border-t border-border">
+              <li className="pt-4 border-t border-gray-200">
                 <div className="flex gap-4">
                   <a
                     href="https://www.linkedin.com/company/zentraffix"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-gray-500 hover:text-gray-900 transition-colors"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
@@ -119,7 +119,7 @@ export default function Footer() {
                     href="https://www.instagram.com/zentraffix"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-gray-500 hover:text-gray-900 transition-colors"
                     aria-label="Instagram"
                   >
                     <Instagram className="w-5 h-5" />
@@ -131,18 +131,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>&copy; {currentYear} Zentraffix Agency. All rights reserved.</p>
           <div className="flex gap-6">
             <button
               onClick={() => setModalContent('privacy')}
-              className="hover:text-foreground transition-colors"
+              className="hover:text-gray-900 transition-colors"
             >
               Privacy Policy
             </button>
             <button
               onClick={() => setModalContent('terms')}
-              className="hover:text-foreground transition-colors"
+              className="hover:text-gray-900 transition-colors"
             >
               Terms of Service
             </button>
@@ -155,7 +155,7 @@ export default function Footer() {
             <div className="bg-white rounded-xl max-w-3xl w-full p-8 relative shadow-lg overflow-y-auto max-h-[80vh]">
               <button
                 onClick={() => setModalContent(null)}
-                className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-900"
               >
                 <X className="w-5 h-5" />
               </button>

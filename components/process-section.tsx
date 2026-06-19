@@ -59,7 +59,7 @@ const milestones = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 lg:py-32 bg-accent/30">
+    <section className="py-24 lg:py-32 bg-gray-50">
       <div className="w-full px-8 lg:px-16">
 
         {/* SECTION HEADING */}

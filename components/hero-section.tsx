@@ -76,7 +76,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed"
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed"
             >
               We help brands scale with performance-driven strategies, high-converting content, and systems built for long-term revenue.
             </motion.p>
@@ -149,7 +149,7 @@ export default function HeroSection() {
                       <motion.div
                         key={index}
                         whileHover={{ scale: 1.02, y: -5 }}
-                        className="bg-card/80 backdrop-blur-sm border border-border rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                        className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
                       >
                         <div className="flex gap-1 mb-3">
                           {[...Array(5)].map((_, i) => (
@@ -159,10 +159,10 @@ export default function HeroSection() {
                             />
                           ))}
                         </div>
-                        <p className="text-foreground font-medium mb-2">
+                        <p className="text-gray-900 font-medium mb-2">
                           "{review.text}"
                         </p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-gray-500">
                           — {review.author}
                         </p>
                       </motion.div>

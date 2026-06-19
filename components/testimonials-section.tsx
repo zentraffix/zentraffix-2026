@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 * (index % 2) }}
-              className="bg-card border border-border rounded-2xl p-8 hover:border-indigo-500/50 transition-all duration-300"
+              className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-indigo-500/50 transition-all duration-300"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (

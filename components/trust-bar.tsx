@@ -12,7 +12,7 @@ const logos = [
 
 export default function TrustBar() {
   return (
-    <section className="relative py-24 border-y border-border bg-background overflow-hidden">
+    <section className="relative py-24 border-y border-gray-200 bg-white overflow-hidden">
       <div className="w-full">
 
         {/* Premium Heading */}
@@ -69,8 +69,8 @@ export default function TrustBar() {
           </motion.div>
 
           {/* Fade Edges */}
-         <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-background via-background/80 to-transparent pointer-events-none" />
-<div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-background via-background/80 to-transparent pointer-events-none" />
+         <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
+<div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none" />
         </div>
 
       </div>
