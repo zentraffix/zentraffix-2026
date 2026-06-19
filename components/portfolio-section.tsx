@@ -164,7 +164,7 @@ export default function PortfolioSection() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-2xl p-8 max-w-5xl w-full shadow-2xl"
+              className="bg-white rounded-2xl p-8 max-w-5xl w-full shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Title */}
@@ -174,7 +174,7 @@ export default function PortfolioSection() {
 
               {/* Platform Badge */}
               {selected.platform && (
-                <span className="inline-block mb-4 px-3 py-1 text-white rounded-full bg-gray-200 dark:bg-neutral-800">
+                <span className="inline-block mb-4 px-3 py-1 text-white rounded-full bg-gray-800">
                   {selected.platform}
                 </span>
               )}

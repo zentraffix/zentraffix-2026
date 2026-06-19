@@ -20,7 +20,7 @@ export default function HeroSection() {
         opacity: 0.05,
       }} />
 
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50/50 via-cyan-50/30 to-background dark:from-blue-950/20 dark:via-cyan-950/10 dark:to-background" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50/50 via-cyan-50/30 to-white" />
 
       {/* Floating particles */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -104,7 +104,7 @@ export default function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-base px-8 h-12 hover:bg-blue-50 dark:hover:bg-blue-950/20"
+                  className="text-base px-8 h-12 hover:bg-blue-50"
                   asChild
                 >
                   <a href="#services">View Services</a>

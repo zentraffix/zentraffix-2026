@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
@@ -15,14 +14,10 @@ const navigation = [
 ];
 
 export default function Header() {
-  const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -31,23 +26,19 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (!mounted) return null;
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/80 backdrop-blur-xl border-b border-border'
+          ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200'
           : 'bg-transparent'
       }`}
     >
       <nav className="w-full px-8 lg:px-16">
         <div className="flex items-center justify-between h-20">
 
-          {/* LEFT SIDE - LOGO + THEME TOGGLE */}
+          {/* LEFT SIDE - LOGO */}
           <div className="flex items-center gap-4">
-
-            {/* Logo Image */}
             <a href="#home">
               <img
                 src="https://i.postimg.cc/52qHJd2g/transparent-logo.png"
@@ -55,20 +46,6 @@ export default function Header() {
                 className="h-24 w-auto object-contain"
               />
             </a>
-
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-lg hover:bg-accent transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </button>
-
           </div>
 
           {/* RIGHT SIDE - NAVIGATION + BUTTON */}
@@ -78,7 +55,7 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
               >
                 {item.name}
               </a>
@@ -96,7 +73,7 @@ export default function Header() {
           {/* MOBILE MENU BUTTON */}
           <button
             type="button"
-            className="lg:hidden p-2 rounded-lg hover:bg-accent transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
@@ -116,7 +93,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border"
+            className="lg:hidden bg-white border-b border-gray-200"
           >
             <div className="space-y-1 px-6 pb-6 pt-2">
               {navigation.map((item) => (
@@ -124,7 +101,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
                 >
                   {item.name}
                 </a>
