@@ -144,10 +144,10 @@ export default function PortfolioSection() {
 
               {/* Premium Overlay */}
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
-                <h3 className="text-white text-lg font-semibold">
+                <h3 className="text-black text-lg font-semibold">
                   {item.title}
                 </h3>
-                <p className="text-white-300 text-sm">
+                <p className="text-black-300 text-sm">
                   {item.category}
                 </p>
               </div>
@@ -185,7 +185,7 @@ export default function PortfolioSection() {
                   <a
                     href={selected.link}
                     target="_blank"
-                    className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                    className="px-6 py-2.5 rounded-xl bg-black/10 backdrop-blur-md border border-black/20 text-black font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300"
                   >
                     Visit Website
                   </a>
@@ -194,7 +194,7 @@ export default function PortfolioSection() {
                 {selected.profile && (
                   <button
                     onClick={() => window.open(selected.profile, '_blank')}
-                    className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                    className="px-6 py-2.5 rounded-xl bg-black/10 backdrop-blur-md border border-black/20 text-white font-medium hover:bg-black/20 hover:scale-105 transition-all duration-300"
                   >
                     View Profile
                   </button>
