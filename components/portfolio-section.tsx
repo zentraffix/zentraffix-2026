@@ -147,7 +147,7 @@ export default function PortfolioSection() {
                 <h3 className="text-white text-lg font-semibold">
                   {item.title}
                 </h3>
-                <p className="text-white-300 text-sm">
+                <p className="text-gray-200 text-sm">
                   {item.category}
                 </p>
               </div>
@@ -168,13 +168,13 @@ export default function PortfolioSection() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Title */}
-             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_0_15px_rgba(99,102,241,0.6)]">
+             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 {selected.title}
               </h2>
 
               {/* Platform Badge */}
               {selected.platform && (
-                <span className="inline-block mb-4 px-3 py-1 text-white rounded-full bg-gray-800">
+                <span className="inline-block mb-4 px-3 py-1 text-white rounded-full bg-indigo-600">
                   {selected.platform}
                 </span>
               )}
@@ -185,7 +185,7 @@ export default function PortfolioSection() {
                   <a
                     href={selected.link}
                     target="_blank"
-                    className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                    className="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 hover:scale-105 transition-all duration-300"
                   >
                     Visit Website
                   </a>
@@ -194,7 +194,7 @@ export default function PortfolioSection() {
                 {selected.profile && (
                   <button
                     onClick={() => window.open(selected.profile, '_blank')}
-                    className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                    className="px-6 py-2.5 rounded-xl bg-gray-800 text-white font-medium hover:bg-gray-900 hover:scale-105 transition-all duration-300"
                   >
                     View Profile
                   </button>
@@ -204,14 +204,14 @@ export default function PortfolioSection() {
               {/* Metrics */}
               {selected.performance && (
                 <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                    CTR<br /><strong>{selected.performance.ctr}</strong>
+                  <div className="px-6 py-4 rounded-xl bg-gray-100 border border-gray-200 text-gray-700 font-medium hover:bg-gray-200 hover:scale-105 transition-all duration-300 text-center">
+                    CTR<br /><strong className="text-gray-900">{selected.performance.ctr}</strong>
                   </div>
-                  <div className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                    Leads<br /><strong>{selected.performance.leads}</strong>
+                  <div className="px-6 py-4 rounded-xl bg-gray-100 border border-gray-200 text-gray-700 font-medium hover:bg-gray-200 hover:scale-105 transition-all duration-300 text-center">
+                    Leads<br /><strong className="text-gray-900">{selected.performance.leads}</strong>
                   </div>
-                  <div className="px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                    Budget<br /><strong>{selected.performance.budget}</strong>
+                  <div className="px-6 py-4 rounded-xl bg-gray-100 border border-gray-200 text-gray-700 font-medium hover:bg-gray-200 hover:scale-105 transition-all duration-300 text-center">
+                    Budget<br /><strong className="text-gray-900">{selected.performance.budget}</strong>
                   </div>
                 </div>
               )}
